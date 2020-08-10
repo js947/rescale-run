@@ -26,5 +26,5 @@ jobs:
         analysis: "user_included"
         analysis_version: "0"
 
-        name: GitHub Actions test job 
+        name: GitHub Actions test job ${{ github.ref }} ${{ github.sha }}
         script: echo hi from $(hostname)
