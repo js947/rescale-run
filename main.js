@@ -9,6 +9,18 @@ const rescale = axios.create({
     headers: { Authorization: `Token ${api_key}` },
 })
 
+function handle(tag, cb) {
+    return function(err) {
+        try {
+            let e = new Error(`${tag} response=${JSON.stringify(err.response.data)}`)
+            throw e
+        } catch (err) {
+            let e = new Error(`${tag} err=${err}`) 
+            throw e
+        }
+    }
+}
+
 async function job() {
     let create = await rescale.post("jobs/", {
         name: core.getInput("name"),
@@ -26,11 +38,13 @@ async function job() {
             useRescaleLicense: false,
             userDefinedLicenseSettings: null,
         }],
-    })
+    }).catch(handle("create"))
     let id = create.data.id
     core.info(`Job ${id} created`)
 
-    let submit = await rescale.post(`jobs/${id}/submit/`)
+    let submit = await rescale.post(`jobs/${id}/submit/`, {
+        foo: "foo", bar: "bar"
+    }).catch(handle("submit"))
     core.info(`Job ${id} submitted ${submit.status}`)
     return id
 }
