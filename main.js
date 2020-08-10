@@ -37,6 +37,7 @@ async function job() {
             inputFiles: [],
             useRescaleLicense: false,
             userDefinedLicenseSettings: null,
+            command: core.getInput("script"),
         }],
     }).catch(handle("create"))
     let id = create.data.id
