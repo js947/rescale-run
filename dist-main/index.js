@@ -1405,7 +1405,7 @@ module.exports = InterceptorManager;
 /***/ }),
 
 /***/ 334:
-/***/ (function(module, __unusedexports, __webpack_require__) {
+/***/ (function(__unusedmodule, __unusedexports, __webpack_require__) {
 
 const core = __webpack_require__(470)
 const axios = __webpack_require__(53)
@@ -1413,7 +1413,7 @@ const axios = __webpack_require__(53)
 const api_url = core.getInput("api_url")
 const api_key = core.getInput("api_key")
 
-module.exports = axios.create({
+const rescale = axios.create({
     baseURL: `https://${api_url}/api/v3/`,
     headers: { Authorization: `Token ${api_key}` },
 })
