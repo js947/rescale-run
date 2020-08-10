@@ -1,0 +1,29 @@
+name: Simple dummy job
+
+on:
+  push:
+    branches: ["*"]
+  pull_request:
+    branches: ["*"]
+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Run job
+      uses: ./
+      with:
+        api_url: ${{ secrets.RESCALE_API_URL }}
+        api_key: ${{ secrets.RESCALE_API_KEY }}
+        walltime: 1
+        coretype: hpc-3
+        corecount: 1
+
+        analysis: user_included
+        analysis_version: CPU
+
+        script: echo hi from $(hostname)

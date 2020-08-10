@@ -1,0 +1,42 @@
+name: Rescale run
+description: Start a workflow on Rescale
+
+runs:
+  using: 'node12'
+  main: 'dist-main/index.js'
+
+inputs:
+  api_url:
+    description: Rescale API URL
+    required: true
+    default: platform.rescale.com
+  api_key:
+    description: Rescale API KEY
+    required: true
+
+  name:
+    description: Job name
+    required: true
+  script:
+    description: Job command
+    required: true
+
+  walltime:
+    description: Walltime for cluster
+    required: true
+    default: "2"
+  coretype:
+    description: Core type for cluster
+    required: true
+    default: "hpc-3"
+  corecount:
+    description: Core count for cluster
+    required: true
+    default: "2"
+
+  analysis:
+    description: Software analysis code
+    required: true
+  analysis_version:
+    description: Software analysis version
+    required: true

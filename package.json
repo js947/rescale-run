@@ -1,0 +1,32 @@
+{
+  "name": "rescale-run",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "prepare": "for i in main; do ncc build $i.js -o dist-$i --source-map; done",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/js947/rescale-run.git"
+  },
+  "keywords": [
+    "Rescale"
+  ],
+  "author": "Jeffrey Salmond <jsalmond@rescale.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/js947/rescale-run/issues"
+  },
+  "homepage": "https://github.com/js947/rescale-run#readme",
+  "dependencies": {
+    "@actions/core": "^1.2.4",
+    "axios": "^0.19.2"
+  },
+  "devDependencies": {
+    "@zeit/ncc": "^0.22.3",
+    "eslint": "^7.4.0"
+  }
+}
