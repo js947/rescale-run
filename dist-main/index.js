@@ -1446,6 +1446,7 @@ async function job() {
             inputFiles: [],
             useRescaleLicense: false,
             userDefinedLicenseSettings: null,
+            name: core.getInput("name"),
             command: core.getInput("script"),
         }],
     }).catch(handle("create"))

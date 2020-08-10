@@ -26,4 +26,5 @@ jobs:
         analysis: "user_included"
         analysis_version: "0"
 
+        name: GitHub Actions test job 
         script: echo hi from $(hostname)
