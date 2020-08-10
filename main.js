@@ -48,4 +48,4 @@ async function job() {
     core.info(`Job ${id} submitted ${submit.status}`)
     return id
 }
-job()
+job().catch(err => core.setFailed(err))
