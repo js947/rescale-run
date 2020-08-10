@@ -23,7 +23,7 @@ jobs:
         coretype: hpc-3
         corecount: 1
 
-        analysis: user_included
-        analysis_version: CPU
+        analysis: "user_included"
+        analysis_version: "0"
 
         script: echo hi from $(hostname)
